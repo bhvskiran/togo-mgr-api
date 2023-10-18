@@ -18,6 +18,9 @@ app.use(middleware);
 const user = require("./controller/users");
 app.use("/api/user", user);
 
+const todo = require("./controller/todo.js");
+app.use("/api/todo", todo);
+
 // app.get("/getTodo", async (req, res) => {
 //   const todos = [
 //     { id: 1, todo: "Make a coffee" },
