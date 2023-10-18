@@ -7,6 +7,7 @@ const middleware = async (req, res, next) => {
     const decodeUser = await admin.auth().verifyIdToken(accesssToken);
 
     if (decodeUser) {
+      req["user_email"] = decodeUser?.email;
       return next();
     }
     return res.json({

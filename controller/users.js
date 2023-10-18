@@ -8,7 +8,8 @@ router.post("/getUser", async (req, res) => {
     const { authorization } = req.headers;
     const accesssToken = authorization.split(" ")[1];
     const decodeUser = await admin.auth().verifyIdToken(accesssToken);
-    let user = await User.findOne({ email_id: decodeUser?.email });
+    const email = req?.user_email;
+    let user = await User.findOne({ email_id: email });
     if (user) {
       return res.send({ user });
     }
