@@ -11,7 +11,7 @@ router.post("/create", async (req, res) => {
     let user = await User.findOne({ email_id: email });
     if (user) {
       const { todoName, todoDesc } = req.body;
-      console.log("todo", todoName, todoDesc);
+      // console.log("todo", todoName, todoDesc);
       let todo = await Todo.create({
         todo_name: todoName,
         todo_desc: todoDesc,
@@ -51,7 +51,7 @@ router.get("/all-todos", async (req, res) => {
     } else {
       res.send("User not Found");
     }
-    console.log("create api", user);
+    // console.log("create api", user);
   } catch (error) {
     return res.json({
       message: "internal Error",
@@ -86,7 +86,7 @@ router.put("/update-todo/:todo_id", async (req, res) => {
     } else {
       res.send("User not Found");
     }
-    console.log("create api", user);
+    // console.log("create api", user);
   } catch (error) {
     return res.json({
       message: "internal Error",
@@ -113,7 +113,7 @@ router.delete("/delete-todo/:todo_id", async (req, res) => {
     } else {
       res.send("User not Found");
     }
-    console.log("create api", user);
+    // console.log("create api", user);
   } catch (error) {
     return res.json({
       message: "internal Error",
